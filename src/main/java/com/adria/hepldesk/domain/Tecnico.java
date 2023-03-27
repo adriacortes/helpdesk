@@ -1,6 +1,7 @@
 package com.adria.hepldesk.domain;
 
 import com.adria.hepldesk.enums.Perfil;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.Entity;
 import jakarta.persistence.OneToMany;
 
@@ -10,6 +11,7 @@ import java.util.List;
 @Entity
 public class Tecnico extends Pessoa{
     private static final long serialVersionUID=1;
+    @JsonIgnore
     @OneToMany(mappedBy = "tecnico")
     private List<Chamado> chamados = new ArrayList<>();
 
