@@ -4,6 +4,7 @@ import com.adria.hepldesk.domain.Pessoa;
 import com.adria.hepldesk.domain.Tecnico;
 import com.adria.hepldesk.dtos.TecnicoDTO;
 import com.adria.hepldesk.services.TecnicoService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -42,7 +43,7 @@ public class TecnicoResource {
     }
 
     @PostMapping
-    public ResponseEntity<TecnicoDTO> create(@RequestBody TecnicoDTO tecnicoDTO){
+    public ResponseEntity<TecnicoDTO> create(@Valid @RequestBody TecnicoDTO tecnicoDTO){
         Tecnico tecnico = new Tecnico(tecnicoDTO);
         tecnico.setId(null);
         Tecnico tecnico1 = tecnicoService.create(tecnico);
