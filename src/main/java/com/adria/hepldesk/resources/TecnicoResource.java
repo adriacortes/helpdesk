@@ -1,5 +1,6 @@
 package com.adria.hepldesk.resources;
 
+import com.adria.hepldesk.domain.Pessoa;
 import com.adria.hepldesk.domain.Tecnico;
 import com.adria.hepldesk.dtos.TecnicoDTO;
 import com.adria.hepldesk.services.TecnicoService;
@@ -16,6 +17,7 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import java.net.URI;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @RestController
@@ -52,5 +54,6 @@ public class TecnicoResource {
                   .toUri();
         return ResponseEntity.created(uri).build(); /*Retornar o ID do objeto criado - Boa pratica*/
     }
+
 
 }
