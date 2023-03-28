@@ -1,6 +1,7 @@
 package com.adria.hepldesk.resources;
 
 import com.adria.hepldesk.domain.Tecnico;
+import com.adria.hepldesk.dtos.TecnicoDTO;
 import com.adria.hepldesk.services.TecnicoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -18,8 +19,8 @@ public class TecnicoResource {
     private TecnicoService tecnicoService;
 
     @GetMapping(value = "/{id}")
-    public ResponseEntity<Tecnico> findById(@PathVariable Integer id){
-        Tecnico objeto = this.tecnicoService.findById(id);
-        return ResponseEntity.ok().body(objeto);
+    public ResponseEntity<TecnicoDTO> findById(@PathVariable Integer id){
+        Tecnico tecnico = this.tecnicoService.findById(id);
+        return ResponseEntity.ok().body(new TecnicoDTO(tecnico));
     }
 }
