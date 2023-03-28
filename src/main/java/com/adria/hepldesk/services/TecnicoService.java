@@ -2,6 +2,7 @@ package com.adria.hepldesk.services;
 
 import com.adria.hepldesk.Repository.TecnicoRepository;
 import com.adria.hepldesk.domain.Tecnico;
+import com.adria.hepldesk.dtos.TecnicoDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -21,5 +22,9 @@ public class TecnicoService {
 
     public List<Tecnico> findAll() {
         return repository.findAll();
+    }
+
+    public Tecnico create(Tecnico Tecnico) {
+        return repository.save(Tecnico);
     }
 }
