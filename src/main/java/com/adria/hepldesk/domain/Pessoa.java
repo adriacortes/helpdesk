@@ -20,6 +20,11 @@ import java.util.stream.Collectors;
 
 @Entity
 public abstract class Pessoa implements Serializable {
+    /*
+    *  Serializable: é quando um objeto é transformado, em umacadeia de bytes
+    *  e desta forma pode ser manipulado de maneira mais fácil,
+    *  seja através de transporte pela rede ou salvo no disco.
+    * */
     private static final long serialVersionUID=1L;
 
     @Id
