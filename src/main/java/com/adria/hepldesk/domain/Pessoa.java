@@ -31,6 +31,13 @@ public abstract class Pessoa implements Serializable {
     @Column(unique = true)
     protected String email;
     protected String senha;
+
+    /**
+     * FetchType.Lazy Loading : Faz com que determinados objetos não sema carregados do
+     * banco até que precise deles,ou seja,on demand.
+     * EAGER: Carrega os dados msmo que não utilizados no momento.
+     *
+     * */
     @ElementCollection(fetch = FetchType.EAGER)
     @CollectionTable(name = "PERFIS")
     protected Set<Integer> perfis = new HashSet<>();
