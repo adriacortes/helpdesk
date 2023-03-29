@@ -4,6 +4,7 @@ import com.adria.hepldesk.Repository.PessoaRepository;
 import com.adria.hepldesk.Repository.TecnicoRepository;
 import com.adria.hepldesk.domain.Pessoa;
 import com.adria.hepldesk.domain.Tecnico;
+import com.adria.hepldesk.dtos.TecnicoDTO;
 import com.adria.hepldesk.services.exceptions.DataIntegrityViolationException;
 import com.adria.hepldesk.services.exceptions.ObjectnotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,5 +46,13 @@ public class TecnicoService {
             throw new DataIntegrityViolationException("E-mail já cadastrado no sistema! " +
                     "Por favor,informar outro!");
         }
+    }
+
+    public Tecnico update(Integer id, TecnicoDTO objDto) {
+        objDto.setId(id);
+        Tecnico obj = findById(id);
+        validaPorCpfEEmail(obj);
+        obj = new Tecnico(objDto);
+        return repository.save(obj);
     }
 }
